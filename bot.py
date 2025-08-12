@@ -19,7 +19,7 @@ sheet = client.open_by_key(SHEET_ID).sheet1
 
 # 🔹 /start командасы
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Сәлем! Мен Lira  сайтының ИП Даму үйірмесінің ИИ көмекшісімін. Маған ЖСН-іңізді жазыңыз, мен парольді табамын.")
+    await update.message.reply_text("Сәлем! Мен Lira сайтының ИИ көмекшісімін. Маған ЖСН-іңізді жазыңыз, мен парольді табамын.")
 
 # 🔹 ЖСН енгізген кезде
 async def find_password(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -35,9 +35,10 @@ async def find_password(update: Update, context: ContextTypes.DEFAULT_TYPE):
     result = df[df['JSN'].astype(str) == jsn]
     if not result.empty:
         password = result.iloc[0]['Password']
-        await update.message.reply_text(f"Сіздің пароліңіз (логин өз ЖСН нөміріңіз): {password}")
+        await update.message.reply_text(f"Сіздің пароліңіз: 
+        {password}")
     else:
-        await update.message.reply_text("Бұл ЖСН бойынша пароль табылмады.")
+        await update.message.reply_text("Бұл ЖСН бойынша пароль табылмады немесе басқа үйірмеге тіркелгенсіз.")
 
 # 🔹 Telegram ботты іске қосу
 TOKEN = os.getenv("BOT_TOKEN")  # Render-да BOT_TOKEN орта айнымалысына мән беріңіз
