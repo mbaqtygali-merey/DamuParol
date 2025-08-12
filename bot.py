@@ -35,10 +35,9 @@ async def find_password(update: Update, context: ContextTypes.DEFAULT_TYPE):
     result = df[df['JSN'].astype(str) == jsn]
     if not result.empty:
         password = result.iloc[0]['Password']
-        await update.message.reply_text(f"Сіздің пароліңіз: 
-        {password}")
+        await update.message.reply_text(f"Сіздің пароліңіз: {password}")
     else:
-        await update.message.reply_text("Бұл ЖСН бойынша пароль табылмады немесе басқа үйірмеге тіркелгенсіз.")
+        await update.message.reply_text("Бұл ЖСН бойынша пароль табылмады немесе басқа үйірмеге тіркелгенсіз. https://lira-atyrau.e-orda.kz/kz сайтында көрсетілген техникалық қолдауға жүгініңіз")
 
 # 🔹 Telegram ботты іске қосу
 TOKEN = os.getenv("BOT_TOKEN")  # Render-да BOT_TOKEN орта айнымалысына мән беріңіз
